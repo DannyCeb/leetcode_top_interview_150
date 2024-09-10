@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'valid_parentheses'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=valid_parentheses",
+                    "--package=valid_parentheses"
+                ],
+                "filter": {
+                    "name": "valid_parentheses",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'valid_parentheses'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=valid_parentheses",
+                    "--package=valid_parentheses"
+                ],
+                "filter": {
+                    "name": "valid_parentheses",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
