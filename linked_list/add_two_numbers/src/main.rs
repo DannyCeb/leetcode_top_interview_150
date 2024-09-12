@@ -21,7 +21,10 @@ pub fn add_two_numbers(
     let mut c2 = l2;
     let mut carry = 0;
 
-    while c1.is_some() || c2.is_some() || carry != 0 {
+    let mut bandera1 = true;
+    let mut bandera2 = true;
+
+    while bandera1 || bandera2 || carry != 0 {
         let sum = match (c1.clone(), c2.clone()) {
             (Some(node1), Some(node2)) => {
                 c1 = node1.next;
@@ -30,13 +33,19 @@ pub fn add_two_numbers(
             }
             (Some(node1), None) => {
                 c1 = node1.next;
+                bandera2 = false;
                 node1.val + carry
             }
             (None, Some(node2)) => {
+                bandera1 = false;
                 c2 = node2.next;
                 node2.val + carry
             }
-            (None, None) => carry,
+            (None, None) => {
+                bandera1 = false;
+                bandera2 = false;
+                carry
+            }
         };
 
         carry = sum / 10;
